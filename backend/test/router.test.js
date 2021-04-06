@@ -62,7 +62,7 @@ describe('POST /users', ()=>{
         .expect(400)
         .expect('"user not created"')
         .end(err=>{
-            if(err) return done(err);
+            if(err) return done(err)
             done();
         })
     })
