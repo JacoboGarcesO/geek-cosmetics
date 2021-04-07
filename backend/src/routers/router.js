@@ -10,7 +10,8 @@ const {
     consultarArticulo,
     ingresarCompraArticulo,
     borrarArticuloCompra,
-    consultarCantidadCompras
+    consultarCantidadCompras,
+    consultarArticulosCompra
 } = require('../controllers/controller');
 
 /**
@@ -131,5 +132,6 @@ router.get('/compra/:id', consultarCompra);
 router.post('/articulo-compra', ingresarCompraArticulo);
 router.delete('/articulo-compra/:id', borrarArticuloCompra);
 router.get('/compras', consultarCantidadCompras);
+router.get('/articulos-compra/:id', consultarArticulosCompra);
 
 module.exports = router;

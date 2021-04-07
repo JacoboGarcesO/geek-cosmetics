@@ -133,6 +133,21 @@ module.exports = {
         }
     },
 
+    consultarArticulosCompra: (req, res) => {
+        try {
+            const id = req.params.id;
+
+            connection.query(`SELECT * FROM articulo_compra WHERE id_compra=${id};`, (err, result, fields) => {
+                if (err) {
+                    return res.json({ message: "Error inesperado." });
+                }
+                return res.json(result);
+            })
+        } catch (e) {
+            return res.json({ message: "Error de conexión inesperado." });
+        }
+    },
+
     consultarCantidadCompras: (req, res) => {
         try {
             connection.query(`SELECT COUNT(id) AS "cantidad" FROM compra;`, (err, result, fields) => {
