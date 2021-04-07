@@ -6,8 +6,15 @@ nav{
     justify-content: flex-start;
 }
 
+.p-icon{
+    position: absolute;
+    top: 38px;
+    z-index: 10000;
+}
+
 nav p{
     color:#fff;
+    position: relative;
     text-decoration: none;
 }
 
@@ -17,7 +24,12 @@ nav p:hover{
 
 nav a{
     color:#fff;
+    position: relative;
     text-decoration: none;
+}
+
+nav a:hover{
+    color: rgb(175, 114, 185);
 }
 
 .icono{
@@ -83,6 +95,10 @@ img{
     animation: arriba 1s ease-in;
 }
 
+.textos a:hover{
+    background-color: blueviolet;
+}
+
 .textos p{
     padding: 20px 0;
     font-weight: 500;
@@ -106,7 +122,7 @@ img{
 }
 
 .enlaces a{
-    padding: 90px;
+    padding: 75px;
 }
 
 .uno{
