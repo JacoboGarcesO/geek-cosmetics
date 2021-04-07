@@ -39,11 +39,10 @@ INSERT INTO `articulo` (`id`, `descripcion`, `precio`, `cantidad`) VALUES
 (NULL, 'Despigmentante Intimo', '40000', '500'), 
 (NULL, 'Despigmentante Facial', '35000', '365'), 
 (NULL, 'Dermatónico', '40000', '500'), 
-(NULL, 'Mantequilla Corporal (frutos rojos)', '25000', '2000'), 
-(NULL, 'Mantequilla Corporal (naranja)', '25000', '700');
+(NULL, 'Mantequilla Corporal (frutos rojos)', '25000', '2000');
 
 INSERT INTO `compra` (`id`, `nombre_comprador`, `fecha_compra`, `total_pago`) VALUES 
-(NULL, 'JACOBO GARCES OQUENDO', CURRENT_TIMESTAMP, '50000.5');
+(NULL, 'JACOBO GARCES OQUENDO', '2021-04-07 18:19:27', '50000.5');
 
 INSERT INTO `articulo_compra` (`id`, `id_articulo`, `id_compra`, `nombre_articulo`, `cantidad`, `subtotal`) VALUES 
 (NULL, '1', '1', 'Foam', '2', '40000'), 
