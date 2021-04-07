@@ -33,6 +33,8 @@ Final technical test for Academia Geek.
 
 <p> npm start</p>
 
+### Open the following link to see the API documentation with Swagger
+
 <p> http://localhost:7007/api-docs</p>
 
 
