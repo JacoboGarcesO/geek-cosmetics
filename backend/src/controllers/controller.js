@@ -9,12 +9,12 @@ module.exports = {
             connection.query(`INSERT INTO articulo (id, descripcion, precio, cantidad)
              VALUES (NULL, "${descripcion}", ${precio}, ${cantidad});`, (err, result, fields) => {
                 if (err) {
-                    return res.json({ message: "Error inesperado." });
+                    return res.status(400).json({ message: "Error inesperado." });
                 }
                 return res.json(result);
             })
         } catch (e) {
-            return res.json({ message: "Error de conexión inesperado." });
+            return res.status(404).json({ message: "Error de conexión inesperado." });
         }
     },
 
@@ -28,7 +28,7 @@ module.exports = {
                 return res.json(result);
             })
         } catch (e) {
-            return res.json({ message: "Error de conexión inesperado." });
+            return res.status(500).json({ message: "Error de conexión inesperado." });
         }
     },
 
@@ -41,7 +41,7 @@ module.exports = {
                 return res.json(result);
             })
         } catch (e) {
-            return res.json({ message: "Error de conexión inesperado." });
+            return res.status(500).json({ message: "Error de conexión inesperado." });
         }
     },
 
@@ -51,18 +51,18 @@ module.exports = {
             const cantidad = req.body.cantidad - unidades_compradas;
 
             if (cantidad <= 1) {
-                return res.json({ message: "No hay suficientes unidades." })
+                return res.status(401).json({ message: "No hay suficientes unidades." })
             }
 
             connection.query(`UPDATE articulo SET id=${id}, descripcion='${descripcion}', precio=${precio}, cantidad=${cantidad} WHERE id=${id};`, (err, result, fields) => {
                 if (err) {
                     console.log(err);
-                    return res.json({ message: "Error inesperado." });
+                    return res.status(404).json({ message: "Error inesperado." });
                 }
                 return res.json(result);
             })
         } catch (e) {
-            return res.json({ message: "Error de conexión inesperado." });
+            return res.status(500).json({ message: "Error de conexión inesperado." });
         }
     },
 
@@ -73,12 +73,12 @@ module.exports = {
             connection.query(`INSERT INTO compra (id, nombre_comprador, fecha_compra, total_pago) VALUES 
             (NULL, "${nombre_comprador}", CURRENT_TIMESTAMP, ${total_pago});`, (err, result, fields) => {
                 if (err) {
-                    return res.json({ message: "Error inesperado." });
+                    return res.status(400).json({ message: "Error inesperado." });
                 }
                 return res.json(result);
             })
         } catch (e) {
-            return res.json({ message: "Error de conexión inesperado." })
+            return res.status(500).json({ message: "Error de conexión inesperado." })
         }
     },
 
@@ -98,7 +98,7 @@ module.exports = {
                 })
             })
         } catch (e) {
-            return res.json({ message: "Error de conexión inesperado." });
+            return res.status(500).json({ message: "Error de conexión inesperado." });
         }
     },
 
@@ -109,12 +109,12 @@ module.exports = {
             connection.query(`INSERT INTO articulo_compra (id, id_articulo, id_compra, nombre_articulo, cantidad, subtotal) VALUES 
             (NULL, ${id_articulo}, ${id_compra}, '${nombre_articulo}', ${cantidad}, ${subtotal});`, (err, result, fields) => {
                 if (err) {
-                    return res.json({ message: "Error inesperado." });
+                    return res.status(400).json({ message: "Error inesperado." });
                 }
                 return res.json(result);
             })
         } catch (e) {
-            return res.json({ message: "Error de conexión inesperado." });
+            return res.status(500).json({ message: "Error de conexión inesperado." });
         }
     },
 
@@ -129,22 +129,7 @@ module.exports = {
                 return res.json(result);
             })
         } catch (e) {
-            return res.json({ message: "Error de conexión inesperado." });
-        }
-    },
-
-    consultarArticulosCompra: (req, res) => {
-        try {
-            const id = req.params.id;
-
-            connection.query(`SELECT * FROM articulo_compra WHERE id_compra=${id};`, (err, result, fields) => {
-                if (err) {
-                    return res.json({ message: "Error inesperado." });
-                }
-                return res.json(result);
-            })
-        } catch (e) {
-            return res.json({ message: "Error de conexión inesperado." });
+            return res.status(500).json({ message: "Error de conexión inesperado." });
         }
     },
 
@@ -157,7 +142,7 @@ module.exports = {
                 return res.json(result);
             })
         } catch (e) {
-            return res.json({ message: "Error de conexión inesperado." })
+            return res.status(500).json({ message: "Error de conexión inesperado." })
         }
     }
 }

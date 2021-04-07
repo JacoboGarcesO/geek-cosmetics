@@ -1,6 +1,6 @@
+DROP TABLE IF EXISTS articulo_compra;
 DROP TABLE IF EXISTS articulo;
 DROP TABLE IF EXISTS compra;
-DROP TABLE IF EXISTS articulo_compra;
 
 CREATE TABLE articulo(
 	id INT PRIMARY KEY AUTO_INCREMENT,

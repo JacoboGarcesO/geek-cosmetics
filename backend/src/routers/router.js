@@ -10,8 +10,7 @@ const {
     consultarArticulo,
     ingresarCompraArticulo,
     borrarArticuloCompra,
-    consultarCantidadCompras,
-    consultarArticulosCompra
+    consultarCantidadCompras
 } = require('../controllers/controller');
 
 /**
@@ -106,32 +105,210 @@ const {
 
 /**
  * @swagger
- * /:
- *  get:
- *      summary: Retorna el texto Conexión exitosa
+ * /articulo:
+ *  post:
+ *      summary: Registrar articulo
+ *      requestBody: 
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/articulo'                       
  *      responses:
  *          200:
- *              description: Conexión exitosa de prueba
+ *              description: Registro exitoso
  *              content:
  *                  application/json: 
  *                          schema:
- *                              type: json
- *                              items: #/components/schemas/articulo
- *                           
+ *                              $ref: '#/components/schemas/articulo'
+ *          400:
+ *              description: Error al ingresar la información
+ *          404: 
+ *              description: Error para conectar con la base de datos 
  */
-router.get("/", (req, res) => {
-    return res.json('Conexión exitosa');
-})
-
 router.post('/articulo', ingresarArticulo);
+
+/**
+ * @swagger
+ * /articulo/{id}:
+ *  get:
+ *      summary: Consultar un solo artículo
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            schema: 
+ *                type: string
+ *            required: true
+ *            description: id del articulo                     
+ *      responses:
+ *          200:
+ *              description: Articulo retornado / si no encuentra articulo devuelve un array vacío
+ *              content:
+ *                  application/json: 
+ *                          schema:
+ *                              $ref: '#/components/schemas/articulo'
+ *          500:
+ *              description: Error en la base de datos
+ */
 router.get('/articulo/:id', consultarArticulo);
-router.get('/articulos', consultarArticulos);
-router.post('/compra', ingresarCompra);
-router.put('/articulo', decrementarUnidades);
+
+/**
+ * @swagger
+ * /compra/{id}:
+ *  get:
+ *      summary: Consultar una compra junto con sus articulos
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            schema: 
+ *                type: string
+ *            required: true
+ *            description: id de la compra                     
+ *      responses:
+ *          200:
+ *              description: Retorna una compra con sus articulos / si no encuentra la compra devuelve un array vacío
+ *              content:
+ *                  application/json: 
+ *                          schema:
+ *                              $ref: '#/components/schemas/compra'
+ */
 router.get('/compra/:id', consultarCompra);
-router.post('/articulo-compra', ingresarCompraArticulo);
+
+/**
+ * @swagger
+ * /articulo:
+ *  put:
+ *      summary: Decrementar unidades de un articulo
+ *      requestBody: 
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/articulo'                  
+ *      responses:
+ *          200:
+ *              description: Retorna las filas afectadas
+ *              content:
+ *                  application/json: 
+ *                          schema:
+ *                              $ref: '#/components/schemas/articulo'
+ *          401:
+ *              description: No hay unidades suficientes
+ *          404: 
+ *              description: El articulo no se encontró
+ *          500:
+ *              description: Error en la base de datos
+ */
+router.put('/articulo', decrementarUnidades);
+
+/**
+ * @swagger
+ * /articulo-compra/{id}:
+ *  delete:
+ *      summary: Borrar un articulo de una compra
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            schema: 
+ *                type: string
+ *            required: true
+ *            description: id del articulo de la compra                     
+ *      responses:
+ *          200:
+ *              description: Retorna las filas afectadas
+ *              content:
+ *                  application/json: 
+ *                          schema:
+ *                              $ref: '#/components/schemas/articulo_compra'
+ *          500: 
+ *              description: Error en la base de datos
+ */
 router.delete('/articulo-compra/:id', borrarArticuloCompra);
+
+/**
+ * @swagger
+ * /articulos:
+ *  get:
+ *      summary: Consultar los artículos               
+ *      responses:
+ *          200:
+ *              description: Retorna un array de articulos
+ *              content:
+ *                  application/json: 
+ *                          schema:
+ *                              type: array
+ *                              $ref: '#/components/schemas/articulo'
+ *          500:
+ *              description: Error en la base de datos
+ */
+router.get('/articulos', consultarArticulos);
+
+/**
+ * @swagger
+ * /compras:
+ *  get:
+ *      summary: Consultar la cantidad de compras             
+ *      responses:
+ *          200:
+ *              description: Retorna el número de compras
+ *              content:
+ *                  application/json: 
+ *                          schema:
+ *                              example:
+ *                                  cantidad: 4
+ *          500:
+ *              description: Error en la base de datos
+ */
 router.get('/compras', consultarCantidadCompras);
-router.get('/articulos-compra/:id', consultarArticulosCompra);
+
+/**
+ * @swagger
+ * /compra:
+ *  post:
+ *      summary: Registrar compra
+ *      requestBody: 
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/compra'                       
+ *      responses:
+ *          200:
+ *              description: Registro exitoso
+ *              content:
+ *                  application/json: 
+ *                          schema:
+ *                              $ref: '#/components/schemas/compra'
+ *          400:
+ *              description: Error al ingresar la información
+ *          500: 
+ *              description: Error para conectar con la base de datos 
+ */
+router.post('/compra', ingresarCompra);
+
+/**
+ * @swagger
+ * /articulo-compra:
+ *  post:
+ *      summary: Registrar articulo en una compra
+ *      requestBody: 
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/articulo_compra'                       
+ *      responses:
+ *          200:
+ *              description: Registro exitoso
+ *              content:
+ *                  application/json: 
+ *                          schema:
+ *                              $ref: '#/components/schemas/articulo_compra'
+ *          400:
+ *              description: Error al ingresar la información
+ *          500: 
+ *              description: Error para conectar con la base de datos 
+ */
+router.post('/articulo-compra', ingresarCompraArticulo);
 
 module.exports = router;
