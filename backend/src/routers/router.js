@@ -1,13 +1,16 @@
 const { Router } = require('express');
 const router = Router();
 
-const { 
+const {
     ingresarArticulo,
-    consultarArticulos, 
-    ingresarCompra, 
-    decrementarUnidades, 
+    consultarArticulos,
+    ingresarCompra,
+    decrementarUnidades,
     consultarCompra,
-    consultarArticulo
+    consultarArticulo,
+    ingresarCompraArticulo,
+    borrarArticuloCompra,
+    consultarCantidadCompras
 } = require('../controllers/controller');
 
 /**
@@ -69,6 +72,7 @@ const {
  *          required: 
  *              - id_articulo
  *              - id_compra
+ *              - nombre_articulo
  *              - cantidad
  *              - subtotal
  *          properties:
@@ -81,6 +85,9 @@ const {
  *              id_compra: 
  *                 type: integer
  *                 description: Identificador de una compra.
+ *              nombre_articulo:
+ *                 type: string
+ *                 description: Nombre del articulo comprado
  *              cantidad: 
  *                 type: integer
  *                 description: Cantidad de unidades de dicho artículo.
@@ -91,8 +98,9 @@ const {
  *              id: 1
  *              id_articulo: 1
  *              id_compra: 1
+ *              nombre_articulo: Foam
  *              cantidad: 362
- *              subtotal: 40501.43
+ *              subtotal: 40501
  */
 
 /**
@@ -120,6 +128,8 @@ router.get('/articulos', consultarArticulos);
 router.post('/compra', ingresarCompra);
 router.put('/articulo', decrementarUnidades);
 router.get('/compra/:id', consultarCompra);
-
+router.post('/articulo-compra', ingresarCompraArticulo);
+router.delete('/articulo-compra/:id', borrarArticuloCompra);
+router.get('/compras', consultarCantidadCompras);
 
 module.exports = router;

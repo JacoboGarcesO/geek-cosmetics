@@ -13,13 +13,13 @@ const options = {
             version: "1.0.0",
             description: "Documentation by Geek Cosmetics API"
         },
-        servers:[
+        servers: [
             {
                 url: "http://localhost:7007"
             }
         ],
     },
-    apis: ["./src/router/router.js"]
+    apis: ["./src/routers/router.js"]
 }
 
 const specs = swaggerJsDoc(options)
@@ -29,7 +29,7 @@ app.use(morgan('dev'));
 require('dotenv').config();
 app.use(cors());
 
-app.use("/", require("./src/router/router"));
+app.use("/", require("./src/routers/router"));
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specs))
 
 app.set('port', process.env.PORT || 7005);

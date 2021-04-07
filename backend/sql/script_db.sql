@@ -20,6 +20,7 @@ CREATE TABLE articulo_compra(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     id_articulo INT NOT NULL,
     id_compra INT NOT NULL,
+    nombre_articulo VARCHAR(50) NOT NULL,
     cantidad INT NOT NULL,
     subtotal DECIMAL NOT NULL,
     FOREIGN KEY(id_articulo) REFERENCES articulo(id),
@@ -44,6 +45,6 @@ INSERT INTO `articulo` (`id`, `descripcion`, `precio`, `cantidad`) VALUES
 INSERT INTO `compra` (`id`, `nombre_comprador`, `fecha_compra`, `total_pago`) VALUES 
 (NULL, 'JACOBO GARCES OQUENDO', CURRENT_TIMESTAMP, '50000.5');
 
-INSERT INTO `articulo_compra` (`id`, `id_articulo`, `id_compra`, `cantidad`, `subtotal`) VALUES 
-(NULL, '1', '1', '2', '40000'), 
-(NULL, '2', '1', '4', '60000');
+INSERT INTO `articulo_compra` (`id`, `id_articulo`, `id_compra`, `nombre_articulo`, `cantidad`, `subtotal`) VALUES 
+(NULL, '1', '1', 'Foam', '2', '40000'), 
+(NULL, '2', '1', 'Carbón Activado WIKI', '4', '60000');
