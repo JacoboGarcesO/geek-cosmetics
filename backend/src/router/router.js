@@ -1,6 +1,14 @@
 const { Router } = require('express');
-const { connection } = require('../../config/db_config');
 const router = Router();
+
+const { 
+    ingresarArticulo,
+    consultarArticulos, 
+    ingresarCompra, 
+    decrementarUnidades, 
+    consultarCompra,
+    consultarArticulo
+} = require('../controllers/controller');
 
 /**
  * @swagger
@@ -53,7 +61,7 @@ const router = Router();
  *          example:
  *              id: 1
  *              nombre_comprador: Jacobo
- *              fecha_compra: 01-12-2021T23:59:59.997
+ *              fecha_compra: 01-12-2021 23:59:59.997
  *              total_pago: 87000.43
  * 
  *     articulo_compra:
@@ -101,10 +109,17 @@ const router = Router();
  *                              type: json
  *                              items: #/components/schemas/articulo
  *                           
- */                 
+ */
 router.get("/", (req, res) => {
     return res.json('Conexión exitosa');
 })
+
+router.post('/articulo', ingresarArticulo);
+router.get('/articulo/:id', consultarArticulo);
+router.get('/articulos', consultarArticulos);
+router.post('/compra', ingresarCompra);
+router.put('/articulo', decrementarUnidades);
+router.get('/compra/:id', consultarCompra);
 
 
 module.exports = router;
