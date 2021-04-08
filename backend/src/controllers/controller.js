@@ -175,5 +175,17 @@ module.exports = {
         } catch (e) {
             return res.status(500).json({ message: "Error de conexión inesperado." })
         }
-    }
+    },
+    consultarCompras: (req, res)=>{
+        try {
+            connection.query(`SELECT * FROM compra;`, (err, result) => {
+                if (err) {
+                    return res.json({ message: "Error inesperado." });
+                }
+                return res.json(result);
+            })
+        } catch (e) {
+            return res.status(500).json({ message: "Error de conexión inesperado." })
+        }
+    } 
 }

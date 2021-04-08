@@ -11,7 +11,8 @@ const {
     ingresarCompraArticulo,
     borrarArticuloCompra,
     consultarCantidadCompras,
-    actualizarPago
+    actualizarPago,
+    consultarCompras
 } = require('../controllers/controller');
 
 /**
@@ -313,5 +314,7 @@ router.post('/compra', ingresarCompra);
 router.post('/articulo-compra', ingresarCompraArticulo);
 
 router.get('/actualizar-pago/:id', actualizarPago)
+
+router.get('/compras-historial', consultarCompras)
 
 module.exports = router;
