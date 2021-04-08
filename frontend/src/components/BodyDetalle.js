@@ -30,9 +30,11 @@ const BodyDetalle = () => {
                 <div className="title-info-compra">
                     <h1>{compra.nombre_comprador}</h1>
                     <br/>
-                    <p># {compra.id}</p>
+                    <p>FACTURA # {compra.id}</p>
                     <br/>
-                    <p>{compra.fecha_compra}</p>
+                    <p>FECHA DE COMPRA: {compra.fecha_compra}</p>
+                    <br/>
+                    <p>TOTAL A PAGAR CON IVA: {compra.total_pago} $</p>
                 </div>
                 <div className="container-img-compra">
                     <img src={IMG} alt="" />
