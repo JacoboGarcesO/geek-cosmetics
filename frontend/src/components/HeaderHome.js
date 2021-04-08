@@ -11,7 +11,7 @@ const HeaderHome = () => {
                     <h1>Jacobo Garcés</h1>
                     <h2>Geek Cosmetics</h2>
                     <p>¡Para hacer a nuestros clientes aún más hermosos!</p>
-                    <Link to="/compras">Comprar</Link>
+                    <Link to="/comprar">Comprar</Link>
                 </div>
                 <img src={Img} alt="" />
             </div>

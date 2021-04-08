@@ -1,10 +1,15 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Nav';
+import BodyCompra from '../components/BodyCompra';
+import '../styles/CompraStyles.css';
 
-export const Compra = () => {
+const Compra = () => {
     return (
         <div>
             <Navbar />
+            <BodyCompra/>
         </div>
     )
 }
+
+export default Compra;

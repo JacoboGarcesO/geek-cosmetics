@@ -86,7 +86,7 @@ describe('COMPRAS', () => {
 
     it('REGISTRAR UNA NUEVA COMPRA', done => {
         const data = {
-            nombre_comprador: "ALEJANDRO CARDONA", total_pago: 1000000.50
+            id: 2, nombre_comprador: "ALEJANDRO CARDONA", total_pago: 1000000.50
         }
 
         request(app)
@@ -149,7 +149,7 @@ describe('COMPRAS', () => {
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
-            .expect([{ cantidad: 2 }])
+            .expect([{ id: 2 }])
             .end(err => {
                 if (err) return done(err)
                 done();
@@ -158,23 +158,6 @@ describe('COMPRAS', () => {
 })
 
 describe('ARTICULOS EN COMPRAS', () => {
-
-    it('REGISTRAR ARTICULO EN UNA COMPRA', done => {
-        const data = {
-            id_articulo: 1, id_compra: 1, nombre_articulo: "Foam", cantidad: 4, subtotal: 40000
-        }
-
-        request(app)
-            .post('/articulo-compra')
-            .send(data)
-            .set('Accept', 'application/json')
-            .expect('Content-Type', /json/)
-            .expect(200)
-            .end(err => {
-                if (err) return done(err)
-                done();
-            })
-    })
 
     it('ELIMINAR ARTICULO DE UNA COMPRA', done => {
         request(app)

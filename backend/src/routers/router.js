@@ -10,7 +10,8 @@ const {
     consultarArticulo,
     ingresarCompraArticulo,
     borrarArticuloCompra,
-    consultarCantidadCompras
+    consultarCantidadCompras,
+    actualizarPago
 } = require('../controllers/controller');
 
 /**
@@ -310,5 +311,7 @@ router.post('/compra', ingresarCompra);
  *              description: Error para conectar con la base de datos 
  */
 router.post('/articulo-compra', ingresarCompraArticulo);
+
+router.get('/actualizar-pago/:id', actualizarPago)
 
 module.exports = router;

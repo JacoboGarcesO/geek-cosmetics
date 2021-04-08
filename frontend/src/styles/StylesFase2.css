@@ -1,0 +1,75 @@
+.container-form-fase-2{
+    background: #DA4453; 
+    background: -webkit-linear-gradient(to right, #89216B, #DA4453); 
+    background: linear-gradient(to right, #89216B, #DA4453);
+    width: 100%;
+    min-height: 950px;
+	height: auto;
+    padding: 80px 40px 40px 40px;
+}
+
+.table-articulos{
+    text-align: center;
+	line-height: 30px;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin:auto;
+    padding: 30px;
+	border-radius: .25rem;
+	background-color: #89216B;
+	width: 80%;
+	box-shadow: 5px 7px 7px 5px #DA4453;
+    color: #fff;
+}
+
+thead tr .tittleTable {
+	border-bottom: 3px solid #DA4453;
+	color: #fff;
+}
+
+tbody tr:hover {
+	background-color: #DA4453;
+	cursor: default;
+}
+
+tbody td, tr {
+	color: #fff;
+    align-items: center;
+    border-spacing: 2em;
+	border-bottom: 1px solid #DA4453;
+	padding: 10px;
+    font-size: 1.1em;
+}
+
+.btn-add-article{
+	padding: 7px;
+	background-color: rgb(40, 192, 40);
+	border: none;
+	border-radius: 4px;
+}
+
+.btn-add-article:hover{
+	cursor: pointer;
+}
+
+.fa-check-square{
+	color: #fff;
+	font-size: 25px;
+}
+
+.btn-ver-detalles{
+	position: absolute;
+	top: 880px;
+	left: calc(50% - 50px);
+	text-decoration: none;
+	color: #fff;
+	padding: 15px;
+	border: none;
+	background-color: #DA4453;
+	border-radius: 5px;
+}
+
+.btn-ver-detalles:hover{
+	background-color: #89216B;
+	cursor: pointer;
+}

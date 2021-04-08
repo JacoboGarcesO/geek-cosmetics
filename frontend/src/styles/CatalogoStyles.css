@@ -3,8 +3,8 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #DA4453;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #89216B, #DA4453);  /* Chrome 10-25, Safari 5.1-6 */
+    background: #DA4453; 
+    background: -webkit-linear-gradient(to right, #89216B, #DA4453);
     background: linear-gradient(to right, #89216B, #DA4453);
 }
 

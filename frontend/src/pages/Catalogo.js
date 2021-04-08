@@ -4,7 +4,7 @@ import Body from '../components/BodyCatalogo';
 
 import '../styles/CatalogoStyles.css';
 
-export const Catalogo = () => {
+const Catalogo = () => {
     return (
         <div className="container-catalogo">
             <Navbar />

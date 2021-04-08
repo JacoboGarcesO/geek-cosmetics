@@ -1,0 +1,69 @@
+.container-compra{
+    background: #DA4453; 
+    background: -webkit-linear-gradient(to right, #89216B, #DA4453); 
+    background: linear-gradient(to right, #89216B, #DA4453);
+    width: 100vw;
+    height: 100vh;
+    padding: 180px 0;
+}
+
+.form-compra-incial{    
+    position: relative;
+    padding: 50px;
+    margin: auto;
+    width: 50%;
+    height: 45vh;
+    background-color: #DA4453;
+    border-radius: 8px;
+    box-shadow: inset -6px -6px 20px #DA4453,
+                6px 6px 20px rgba(0,0,0,0.1);
+}
+
+.form-compra-incial h2{
+    text-align: center;
+    color: #fff;
+    padding: 30px;
+}
+
+
+.container-inputs{
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-inputs div{
+    display: flex;
+}
+
+.container-inputs i{
+    color: #fff;
+    padding: 5px 15px; 
+    font-size: 25px;
+}
+
+.container-inputs input{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow:  -6px -6px 20px #DA4453,
+    6px 6px 6px rgba(73, 57, 57, 0.4);
+}
+
+.btn-sbt-compra-fase-1{
+    position: absolute;
+    top: 220px;
+    left: 60px;
+    padding: 7px 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #8d3875;
+    color: #fff;
+    box-shadow:  -6px -6px 20px #DA4453,
+    5px 5px 5px rgba(73, 57, 57, 0.4);
+}
+
+.btn-sbt-compra-fase-1:hover{
+    cursor: pointer;
+    background-color: blueviolet;
+}
+
