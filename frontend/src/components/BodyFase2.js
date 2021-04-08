@@ -82,6 +82,7 @@ const BodyFase2 = () => {
                                                         });
                                                     } else {
                                                         saveToLocal('id_compra', lastId)
+                                                        window.location.reload()
 
                                                     }
                                                 })
