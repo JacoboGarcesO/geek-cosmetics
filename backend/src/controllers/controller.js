@@ -132,7 +132,7 @@ module.exports = {
         try {
             const id = req.params.id;
 
-            connection.query(`DELETE FROM articulo_compra WHERE articulo_compra.id = ${id}`, (err, result) => {
+            connection.query(`DELETE FROM articulo_compra WHERE id = ${id}`, (err, result) => {
                 if (err) {
                     return res.json({ message: "Error inesperado." });
                 }
