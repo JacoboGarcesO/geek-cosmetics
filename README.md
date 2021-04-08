@@ -79,7 +79,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 <p> cd frontend</p>
 
-## `docker build -t "frontend" .`
+### `docker build -t "frontend" .`
 
 #### Return to root 
 
@@ -89,12 +89,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 <p> cd backend</p>
 
-## `docker build -t "backend" .`
+### `docker build -t "backend" .`
 
 #### Return to root 
 
 <p> cd ..</p>
 
-## `docker-compose up`
+### `docker-compose up`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
