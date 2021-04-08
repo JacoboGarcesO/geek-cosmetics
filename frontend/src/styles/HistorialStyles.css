@@ -1,0 +1,9 @@
+.container-historial-compras{
+    background: #DA4453; 
+    background: -webkit-linear-gradient(to right, #89216B, #DA4453); 
+    background: linear-gradient(to right, #89216B, #DA4453);
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    padding: 80px 40px 40px 40px;
+}

@@ -5,6 +5,7 @@ import Catalogo from '../pages/Catalogo';
 import Compra from '../pages/Compra';
 import CompraFase2 from '../pages/CompraFase2';
 import VerDetalle from '../pages/VerDetalle';
+import VerHistorialCompras from '../pages/VerHistorialCompras';
 
 const Router = ()=>{
     return (
@@ -15,6 +16,7 @@ const Router = ()=>{
                 <Route path="/comprar" component={Compra} />
                 <Route path="/comprar-fase-2" component={CompraFase2} />
                 <Route path="/ver-detalle" component={VerDetalle} />
+                <Route path="/compras" component={VerHistorialCompras} />
             </Switch>
         </BrowserRouter>
     );

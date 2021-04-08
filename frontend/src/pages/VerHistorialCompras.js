@@ -1,10 +1,15 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Nav';
+import '../styles/HistorialStyles.css';
+import HostorialCompras from '../components/HostorialCompras';
 
-export const VerHistorialCompras = () => {
+const VerHistorialCompras = () => {
     return (
         <div>
             <Navbar />
+            <HostorialCompras/>
         </div>
     )
 }
+
+export default VerHistorialCompras;
